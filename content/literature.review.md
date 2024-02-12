@@ -1,7 +1,7 @@
 ## State of the Art
 {:#LiteratureReview}
 
-First, existing approaches for LTQP optimization must be considered. Then, the following sections will discuss existing SPARQL optimization approaches that can be adapted to personalized LTQP optimization.
+First, existing approaches for LTQP optimization must be considered. Then, the following sections will discuss existing SPARQL optimization approaches that can be adapted for personalized LTQP optimization.
 
 <!-- due to the wide scope of personalized query optimization, the literature review should consider many fields of related traditional SPARQL optimization literature. The engine can pre-compute statistical information or indexes of often visited documents to speed up both query execution and aid in link prioritisation. Furthermore, the engine might cache (partial) query results that are often visited. Additionally, learned optimization algorithms can assist query planning by using previous experiences to learn to optimize join plans for similar queries. -->
 
@@ -13,94 +13,60 @@ First, existing approaches for LTQP optimization must be considered. Then, the f
 ### Optimizing LTQP
 {:#OptimizingLTQP}
 
-LTQP optimization literature aims to both improve the query execution plan and dereference query-relevant documents first. Query relevant documents should be identified by link prioritization algorithms and dereferenced before links that were discovered more recently.
+The literature on LTQP optimization aims to improve both the execution plan of queries and prioritization of query-relevant documents. Identification of query-relevant documents is crucial and typically relies on link prioritization algorithms, ensuring that these documents are accessed before others. 
+Presently, LTQP query planning relies on [heuristics](cite:cites hartig2011zero).
+These heuristics, which use no prior knowledge, employ four rules to establish the evaluation order of operators. 
+Firstly, they prioritize triple patterns with a designated seed document, except when the seed document represents vocabulary terms. 
+Moreover, they favor query plans featuring filtering triple patterns in proximity to the seed triple pattern.
+Finally, they create an order where preceding triple patterns contain at least one query variable of the subsequent pattern.
 
-Currently, query planning in LTQP is done using [heuristics](cite:cites hartig2011zero). These heuristics use no prior knowledge and instead uses four rules to determine the evaluation order of operators. First, it evaluates tripe patterns with a seed document first. The exeception to this if the triple pattern has a seed document that represents vocabulary terms. Additionally, it prefers query plans with filtering triple patterns close to the seed triple pattern, finally ensures an order in which preceding triple patterns have atleast one query variable of the proceeding pattern.
-[Multiple algorithms](cite:cites hartig2016walking) exist for link priotisation on the Open Linked Data Web, however the approaches do not show a conclusive advantage for any of the algorithms. For structured decentralized environments like Solid [previous work](cite:cites taelman2023link) shows improvement in query execution when using inherent structural information present in structured decentralized environments.
+While [multiple algorithms](cite:cites hartig2016walking) for link prioritization exist for the Open Linked Data Web, none show a definitive advantage over others.
+However, in structured decentralized environments like Solid, previous [work](cite:cites taelman2023link), demonstrates enhanced query execution when leveraging structural information inherent to such environments.
 
-These works assume (almost) no prior knowledge on the data is available, however if our engine queries the same data often, we can use prior knowledge on that data to improve query performance.
-
+These studies typically operate under the assumption of limited prior knowledge about the data. 
+However, in cases where our engine frequently queries the same dataset, harnessing prior knowledge can significantly enhance query performance.
 
 ### SPARQL Caching Strategies
 {:#SPARQLCaching}
 
-In SPARQL, server-side caching stores and reuses repeated computations to reduce the computational complexity of queries [](cite:cites papailiou2015graph, madkour2018worq). 
-While entire query results can be cached, most caching approaches instead prefer caching basic graph patterns (BGP) that are seen in many different queries [](cite:cites madkour2018worq). 
-These BGPs can replace joins in the query plan and influence join optimization [](cite:cites papailiou2015graph).
-To ensure isomorphic BGP are stored only once, [canonical labeling](cite:cites papailiou2015graph) algorithms create unique labels for BGPs, that ensure that all isomorphisms of a BGP get equivalent labels.
-Other server-side [caching approaches](cite:cites madkour2018worq) use data summaries to store previously computed optimizations of joins.
-These summaries take less space, are more reusable, and still reduce query execution times by an order of magnitude.
-<!-- while client-side querying aims to prevent expensive calls to SPARQL endpoints by caching entire query results [](cite:cites zhang2018learning). -->
-Client-side caching instead strives to prevent expensive requests to SPARQL endpoints by caching entire query results [](cite:cites zhang2018learning) and [proactive query fetching](cite:cites zhang2016secf).
-The performance of such approaches relies heavily on the cache hitrate.
-To determine which queries to prefetch, machine learning is used to predict likely subsequent queries, given a current query [](cite:cites zhang2018learning).
-These results are then cached, however, if the cache is full the cache entity thats the least likely to be requested has to be removed.
-Cache eviction algorithms are numerous, with many different performance profiles. An often used algorithm is the Least Recently Used (LRU), which simply evicts the cache entry that has least recently been requested by the engine.
+In SPARQL, server-side caching efficiently stores and reuses repeated computations to mitigate the computational complexity of queries [](cite:cites papailiou2015graph, madkour2018worq). 
+While caching entire query results is an option, most strategies focus on caching basic graph patterns (BGPs) that are frequently encountered across multiple queries [](cite:cites madkour2018worq). 
+These BGPs can effectively substitute joins in query plans and influence join optimization (cite:cites papailiou2015graph). 
+To ensure uniqueness, canonical labeling algorithms assign distinct labels to isomorphic BGPs, ensuring that all isomorphic patterns receive equivalent labels (cite:cites papailiou2015graph).
+Other server-side [caching approaches](cite:cites madkour2018worq) utilize data summaries to retain previously computed join optimizations. These summaries occupy less space, offer greater reusability, and still significantly reduce query execution times [caching approaches](cite:cites madkour2018worq). 
+Client-side caching, on the other hand, aims to circumvent expensive requests to SPARQL endpoints by caching complete query results [](cite:cites zhang2018learning) and implementing [proactive query fetching](cite:cites zhang2016secf).
+The efficacy of such strategies heavily depends on the cache hit rate.
+To decide which queries to prefetch, machine learning techniques are employed to predict probable subsequent queries based on the current query[](cite:cites zhang2018learning).
+If the cache reaches capacity, the least likely cache entity to be requested must be evicted.
+Cache eviction algorithms vary widely, each offering different performance profiles.
+One commonly used algorithm is Least Recently Used (LRU), which simply removes the cache entry that has been least recently requested by the engine.
+
 
 
 ### Auxillary Data Structures
 {:#AuxillaryDataStructures}
-In this section we will briefly discuss various datastructures used by query engines to optimize query plans. 
-These data structures are often computed in an offline fashion, which makes them infeasable for LTQP. 
-However, if we can cache these data structures, and dynamically discover them during LTQP query execution, the same optimization strategies used in traditional querye engines can be translated to LTQP. 
-Possible datastructures include:
-
-- **Dataset summaries**, like the [Vocabulary of Interlinked Datasets (VoID)](cite:cites alexander2011describing), describe statistical information of the underlying dataset. This can include the number of triples, distinct subjects or predicates, and the occurences of predicates.
-- [**Characteristic sets**](cite:cites neumann2011characteristic) define entities with the same predicate set present in the data. Characteristic sets are used to estimate cardinality of star-shaped joins, which in turn can improve join planning.
-- **Approximate Membership Functions (AMFs)** determine whether a dataset can contain answers to a query or not. Examples of AMFs are [Prefix-Partitioned Bloom Filters (PPBFs)](cite:cites aebeloe2019decentralized) and the [extended Semantically Partitioned Bloom Filters (SPBFs)](cite:cites aebeloe2022lothbrok)
-- **Indexes** are used to speed-up the look-up of matching triples to triple patterns. Engines calculate different combinations of SPO indexes depending on their implementation. 
+In this section, we will briefly explore various data structures utilized by query engines to optimize query plans. 
+These data structures are typically computed offline, rendering them impractical for LTQP.
+However, if these data structures can be cached and dynamically discovered during LTQP query execution, the same optimization strategies employed in traditional query engines can be adapted to LTQP.
+Potential data structures include:
 
 
-<!-- These works often consider the case of an engine running as a SPARQL endpoint over a single dataset, thus these approaches are not directly applicable to LTQP. However, for a personalized engine, that will often query similar data due to client usage patterns, we can compute statistics for often accessed data. Thus,  -->
+- **Dataset summaries**, such as the [Vocabulary of Interlinked Datasets (VoID)](cite:cites alexander2011describing), describe statistical information of the underlying dataset. This can include the number of triples, distinct subjects or predicates, and the occurences of predicates.
+- [**Characteristic sets**](cite:cites neumann2011characteristic), which define entities sharing the same predicate set present in the data. Characteristic sets are instrumental in estimating the cardinality of star-shaped joins, thereby enhancing join planning.
+- **Approximate Membership Functions (AMFs)**, which determine whether a dataset can potentially contain answers to a query or not. Examples of AMFs are [Prefix-Partitioned Bloom Filters (PPBFs)](cite:cites aebeloe2019decentralized) and the [extended Semantically Partitioned Bloom Filters (SPBFs)](cite:cites aebeloe2022lothbrok)
+- **Indexes** utilized to accelerate the lookup of matching triples to triple patterns. Engines calculate different combinations of SPO indexes depending on their implementation. 
 
-<!-- - Characteristic sets / hierarchical characteristic sets
-- Mention worst-case optimal but mention it doesn't use statistics so not that interesting
-- What is a VS tree index? -> gStore: a graph-based SPARQL query engine -->
-
-
-<!-- - Walking without a map
-- Zero knowledge query planning by olaf
-- Ruben T paper -->
-<!-- ### Recommendation Systems
-{:##RecommendationSystems}
-Recommendation systems fall into two categories: .. and ... We are interested in recommendation systems that create a profile to describe the user interests. This approach can be translated to instead represent a client's querying behavior. -->
 
 ### Learned Optimizers
 {:#LearnedOptimizers}
-Learned query optimizers in relational databases literature [](cite:cites yu2020reinforcement, marcus2021bao) are currently experiencing a surge in interest.
-These optimizing agents are trained using reinforcement learning, which allows them to train in an online setting.
-The first step is to convert queries into numeric vectors that contain information useful for query planning. 
-Featurization approaches range from [one-hot encoding join predicates](cite:cites marcus2018deep), to applying advanced [graph neural networks](cite:cites yu2020reinforcement) on the query graph.'
-The second step is to greedily build a join plan that minimizes the predicted query execution cost or latency. 
-To predict query execution latency, [ReJOIN](cite:cites marcus2018deep) uses a feed-forward neural network, while more recent works [](cite:cites yu2020reinforcement, marcus2021bao) use tree-based neural networks to account for the inherent tree structure of join plans.
-Finally, the query is executed and the latency is recorded. 
-The model is then trained to minimize the difference between predicted latency and actual recorded latency.
-While most approaches learn an optimizer from scratch using this methodology, [Bao](cite:cites marcus2021bao) insteads learns to augment traditional query optimizers.
-It augments query execution plans by selecting the optimal query hint from a predetermined set of query hints.
-This significantly reduces training cost, while still maintaining a signficant improvement over just using a traditional query optimizer.
-
-<!-- Waarom doen we geen merge joins? https://www.google.com/search?client=firefox-b-d&q=SPARQL+optimization+query#fpstate=ive&vld=cid:755dd3ce,vid:TxdnnmgIs5M,st:2356 
-Is het omdat we geen sortedness kunnen aannemen?
-
--->
-<!-- State of the art papers to look at:
-SOTA:
-Look at: https://link.springer.com/article/10.1007/s00778-021-00676-3 
-Cool sparql optimization presentation: http://events17.linuxfoundation.org/sites/events/files/slides/SPARQL%20Optimisation%20101%20Tutorial.pdf 
-Look into data profiling
-
-- Continual representation learning  / current approaches of encoding SPARQL information
-
-- LTQP over decentralized structural environments
-
-- Federated query planning approaches
-
-- Learned SQL optimizers over single datasource
-
-- recommendation system sota / cold start problem 
-
-- Continual learning sota
-
-- Work on browsing sessions
-
-- Multiple query optimization -->
+Learned query optimizers in relational databases literature [](cite:cites yu2020reinforcement, marcus2021bao) are currently witnessing a surge in interest.
+These optimizing agents are trained using reinforcement learning, enabling them to train in an online setting.
+The first step involves converting queries into numeric vectors containing information crucial for query planning. 
+Featurization approaches span from one-hot encoding join predicates (Marcus et al., 2018) to leveraging advanced graph neural networks on the query graph (cite:cites yu2020reinforcement)
+The second step entails greedily constructing a join plan that minimizes the predicted query execution cost or latency. 
+To predict query execution latency, [ReJOIN](cite:cites marcus2018deep) employs a feed-forward neural network, while more recent works [](cite:cites yu2020reinforcement, marcus2021bao) utilize tree-based neural networks to accommodate the inherent tree structure of join plans.
+Finally, the query is executed, and the latency is recorded.
+The model is then trained to minimize the disparity between predicted latency and actual recorded latency.
+While most approaches learn an optimizer from scratch using this methodology, [Bao](cite:cites marcus2021bao) instead learns to augment traditional query optimizers. 
+It enhances query execution plans by selecting the optimal query hint from a predetermined set of query hints. 
+This approach significantly reduces training cost while still yielding a substantial improvement over merely employing a traditional query optimizer.
