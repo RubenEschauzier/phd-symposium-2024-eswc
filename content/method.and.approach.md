@@ -38,13 +38,14 @@ Finally, the possible upside of indexes is clear.
 Currently, these indexes are computed as the engine dereferences a document, which is computationally intensive.
 If the engine can reuse indexes from previous queries, we bypass the need to re-compute them.
 
-The fundamental risk of all caching approaches is the overhead of maintaining the cache and determining a cache hit.
+The fundamental risk of all caching approaches are the overhead of maintaining the cache and determining a cache hit and handling the cache size.
 If searching the cache for relevant entries is too computationally intensive and the cache hit rate is low, the engine will spend more time searching the cache than it saves using cache entries.
 To account for this risk, this thesis will first investigate caching approaches that require the least complex cache keys.
 These approaches are either caching entire query result sets or caching data on a per-document basis.
 Document URLs are unique, thus they can be used as cache keys without preprocessing.
 Only after successfully applying the straightforward caching approaches will more complex tasks be considered.
-
+To tackle the cache size issue, we will leverage existing literature on cache eviction strategies. 
+We plan to investigate both the impact of cache size and eviction strategy by testing multiple configurations and comparing their respective effects on cache performance
 
 ### Learned Query Optimization in Link Traversal-based Query Processing
 {:#LearnedOptimizationMethod}

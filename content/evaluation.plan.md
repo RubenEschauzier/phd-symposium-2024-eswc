@@ -9,10 +9,11 @@ The evaluation of query optimization performance will follow evaluation approach
 In practice, the following metrics are often used as gauges of performance:
 
 - **Query execution time**, indicating overall query execution efficiency.
-- **First $k$ result arrival times**, as LTQP is a streaming querying approach producing first results quickly improves client experience.
+- **First *k* result arrival times**, as LTQP is a streaming querying approach producing first results quickly improves client experience.
 - [**Diefficiency**](cite:cites acosta2017diefficiency), measures the efficiency of result arrival times during query execution. Engines that quickly produce many results are considered better.
-- **Result completeness**, as any caching or document pruning strategy could introduce mistakes result completeness will be verified and ensured during evaluation.
+- **Result completeness**, as any caching or document pruning strategy could introduce mistakes, result completeness will be verified and ensured during evaluation.
 
-For further analysis of the intended cache approaches in [][#CachingMethod], cache hit rate and overhead will be investigated.
+These metrics will be used to compare the state-of-the-art approaches for non-personalized LTQP optimization to our intended personalized optimization algorithms.
+
+For further analysis of the intended cache approaches in [](#CachingMethod), cache hit rate and overhead will be investigated.
 The combination of these metrics should provide a clear picture of the effectiveness of personalized query optimization for LTQP.
-
