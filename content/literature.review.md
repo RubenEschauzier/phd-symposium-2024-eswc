@@ -54,7 +54,7 @@ Potential data structures include:
 - **Dataset summaries**, such as the [Vocabulary of Interlinked Datasets (VoID)](cite:cites alexander2011describing), describe statistical information of the underlying dataset. This can include the number of triples, distinct subjects or predicates, and the occurences of predicates.
 - [**Characteristic sets**](cite:cites neumann2011characteristic), which define entities sharing the same predicate set present in the data. Characteristic sets are instrumental in estimating the cardinality of star-shaped joins, thereby enhancing join planning.
 - **Approximate Membership Functions (AMFs)**, which determine whether a dataset can potentially contain answers to a query or not. Examples of AMFs are [Prefix-Partitioned Bloom Filters (PPBFs)](cite:cites aebeloe2019decentralized) and the [extended Semantically Partitioned Bloom Filters (SPBFs)](cite:cites aebeloe2022lothbrok)
-- **Indexes** utilized to accelerate the lookup of matching triples to triple patterns. Engines calculate different combinations of SPO indexes depending on their implementation. 
+- **Indexes**, which are utilized to accelerate the lookup of matching triples to triple patterns. Engines calculate different combinations of SPO indexes depending on their implementation. 
 
 
 ### Learned Optimizers
@@ -62,11 +62,11 @@ Potential data structures include:
 Learned query optimizers in relational databases literature [](cite:cites yu2020reinforcement, marcus2021bao) are currently witnessing a surge in interest.
 These optimizing agents are trained using reinforcement learning, enabling them to train in an online setting.
 The first step involves converting queries into numeric vectors containing information crucial for query planning. 
-Featurization approaches span from one-hot encoding join predicates (Marcus et al., 2018) to leveraging advanced graph neural networks on the query graph [](cite:cites yu2020reinforcement)
+Featurization approaches span from one-hot encoding join predicates [](cite:cites marcus2018deep) to leveraging advanced graph neural networks on the query graph [](cite:cites yu2020reinforcement).
 The second step entails greedily constructing a join plan that minimizes the predicted query execution cost or latency. 
 To predict query execution latency, [ReJOIN](cite:cites marcus2018deep) employs a feed-forward neural network, while more recent works [](cite:cites yu2020reinforcement, marcus2021bao) utilize tree-based neural networks to accommodate the inherent tree structure of join plans.
 Finally, the query is executed, and the latency is recorded.
 The model is then trained to minimize the disparity between predicted latency and actual recorded latency.
 While most approaches learn an optimizer from scratch using this methodology, [Bao](cite:cites marcus2021bao) instead learns to augment traditional query optimizers. 
 It enhances query execution plans by selecting the optimal query hint from a predetermined set of query hints. 
-This approach significantly reduces training cost while still yielding a substantial improvement over merely employing a traditional query optimizer.
+This approach significantly reduces training cost while still yielding a substantial improvement over employing a traditional query optimizer.
