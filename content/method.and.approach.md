@@ -44,6 +44,7 @@ To account for this risk, this thesis will first investigate caching approaches 
 These approaches are either caching entire query result sets or caching data on a per-document basis.
 Document URLs are unique, thus they can be used as cache keys without preprocessing.
 Only after successfully applying the straightforward caching approaches will more complex tasks be considered.
+<span class="comment" data-author="RT">Another risk here (I'd also mention this for FWO) is handling the cache size. When doing traversal over a huge web, your engine might not be able to store everything in cache indefinitely. So cache invalidation will be needed in some cases. But cache invalidation is known to be a hard problem.</span>
 
 
 ### Learned Query Optimization in Link Traversal-based Query Processing
