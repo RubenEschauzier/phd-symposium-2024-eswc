@@ -10,6 +10,7 @@ To identify these query patterns, the first step is a literature review on the p
 From this literature review, a theoretical framework of the different usage patterns clients exhibit when using social media and linked data will be created.
 
 An existing benchmark for querying decentralized environments is [Solidbench](cite:cites taelman2023link), which simulates a social network application's data that is fragmented to represent Solid data vaults. 
+<span class="comment" data-author="RV">Solid<strong>B</strong>ench (throughout)</span>
 By applying the previously created theoretical framework of client usage patterns, Solidbench will be extended to include simulated client-specific query sequences.
 These sequences of queries and simulated will represent sub-communities present in real-world social networks and the different access patterns identified in the theoretical framework.
 Both the degree of fragmentation and separation between communities and the probability of within-community queries will be adjustable using parameters to allow for a thorough analysis of the impact of our fragmentation and query generation strategies.
@@ -45,10 +46,14 @@ These approaches are either caching entire query result sets or caching data on 
 Document URLs are unique, thus they can be used as cache keys without preprocessing.
 Only after successfully applying the straightforward caching approaches will more complex tasks be considered.
 
+<span class="comment" data-author="RV">So these are all great; even if you change the RQs as per my suggestions. They are a valid **approach** to answer the more generalized questions. I.e., when you write <q>For RQ III, an investigation into the effect of the data structures described in Subsection 2.3 is required.</q>, that remains true, even if RQ III does not explicitly ask about doing that. So rephrase RQ III to be about the problem, and then what you write above is one (!) good approach to answer that question. The question shouldn't be so narrow such that only one approach is correct (regardless, your approach is).</span>
+
 
 ### Learned Query Optimization in Link Traversal-based Query Processing
 {:#LearnedOptimizationMethod}
-To answer research question IV, personalized query engines need learned query optimization algorithms that work in an online setting, since LTQP engines do not know what data they will query in advance.
+To answer research question IV,
+<span class="comment" data-author="RV">consistency: **RQ IV** (throughout, for all questions in this section)</span>
+personalized query engines need learned query optimization algorithms that work in an online setting, since LTQP engines do not know what data they will query in advance.
 As such, any offline training algorithm that requires millions of training examples is by definition infeasible.
 My previous work in [SPARQL join order optimization](cite:cites eschauzier2023reinforcement) shows that while RL-based join order optimization is promising, it is computationally expensive to train an optimizer from scratch.
 Instead, [learned query optimization hint approaches](cite:cites marcus2021bao, woltmann2023fastgres) train models that give hints to existing optimizers, like what join operator to use.
