@@ -1,7 +1,7 @@
 ## Problem Statement and Contributions
 {:#ProblemStatementandContributions}
 
-Building upon the existing work in [](#LiteratureReview), this thesis will use personalized query optimization to overcome the performance issues outlined in [](#introduction).
+Building upon the existing work in [](#LiteratureReview), in this PhD work, I will use _personalized query optimization_ to overcome the performance issues outlined in [](#introduction).
 Personalized query optimization adapts the optimization procedure to the client-specific usage patterns of the engine. 
 As such, the engine will keep a state that stores optimization-relevant information.
 <!-- Personalized query optimization involves caching auxiliary data structures, (intermediate) results, and training a client-specific learned query optimizer. -->
@@ -9,6 +9,8 @@ The hypothesizes underlying this work are:
 
  - **Hypothesis 1:** Query engine users exhibit patterns in the usage of decentralized environments, which are expressed in correlated query sequences. These patterns can be identified from the literature and modeled.
  - **Hypothesis 2:** Personalized query engines can automatically extract and leverage client-specific query patterns to improve query execution times by an order of magnitude.
+
+<span class="comment" data-author="RV">As interesting as they are, at the moment, I think these are assumptions rather than hypotheses (H2 is a mix). I.e., they are your starting points. Hypotheses probably run more in the direction of: (H2) Client-specific patterns improve query execution time (be more specific re: magnitude), (H1) not sure if this needs to become a hypothesis, but if it does, something about how the effort does not outweigh the benefit</span>
 
 Before any work on personalized query optimization can proceed, the different real-world client usage patterns must be identified.
 These patterns can include but are not limited to, application data requirements, query requirements for different applications, and data update frequency.
@@ -27,7 +29,12 @@ Simply reusing the result set for the overlapping sub-BGPs of one query on anoth
 This leads to research questions II & III.
 
 - **RQ II:** How can we cache (intermediate) results during Link Traversal-based Query Processing when the queried subweb changes between queries?
+
+<span class="comment" data-author="RV">Are we really interested in the how, or rather in the effect of caching? The HOW is IMHO the approach to find out the effect.</span>
+
 - **RQ III:** What auxiliary data structures can be cached during Link Traversal-based Query Processing to improve query optimization?
+
+<span class="comment" data-author="RV">Oh all of them I'm sure 😉 Similar as the previous one, probably we want the RQ to be much more about the effect of whatever data structure we end up using.</span>
 
 Finally, learned optimizers are a promising candidate for extracting usage patterns from sequences of queries.
 Statistical learning methods are built to approximate arbitrary data-generating processes from samples of data.
@@ -39,3 +46,7 @@ This gives us research question IV:
 
 - **RQ IV:** How can we efficiently learn a query optimizer during query execution without excessive training overhead?
 
+<span class="comment" data-author="RV">learn => train?</span>
+<span class="comment" data-author="RV">Perhaps also a bit deeper: this might be the approach, whereas the question is more whether (when?!) the overhead is worth it?</span>
+
+<span class="comment" data-author="RV">Good work on the questions!</span>
