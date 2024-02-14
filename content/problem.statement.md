@@ -8,7 +8,7 @@ As such, the engine will keep a state that stores optimization-relevant informat
 The hypothesizes underlying this work are: 
 
  - **Hypothesis 1:** Query engine users exhibit patterns in the usage of decentralized environments, which are expressed in correlated query sequences. These patterns can be identified from the literature and modeled.
- - **Hypothesis 2:** Personalized query engines can automatically extract and leverage client-specific query patterns to improve query execution times by an order of magnitude.
+ - **Hypothesis 2:** Personalized query engines can automatically extract and leverage client-specific query patterns to improve query execution times by an order of magnitude. <span class="comment" data-author="RT">Might be good to make explicit that you compare to non-personalized query engines.</span>
 
 Before any work on personalized query optimization can proceed, the different real-world client usage patterns must be identified.
 These patterns can include but are not limited to, application data requirements, query requirements for different applications, and data update frequency.
