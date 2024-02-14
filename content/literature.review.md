@@ -31,8 +31,8 @@ However, in cases where our engine frequently queries the same dataset, harnessi
 
 In SPARQL, server-side caching efficiently stores and reuses repeated computations to mitigate the computational complexity of queries [](cite:cites papailiou2015graph, madkour2018worq). 
 While caching entire query results is an option, most strategies focus on caching basic graph patterns (BGPs) that are frequently encountered across multiple queries [](cite:cites madkour2018worq). 
-These BGPs can effectively substitute joins in query plans and influence join optimization (cite:cites papailiou2015graph). 
-To ensure uniqueness, canonical labeling algorithms assign distinct labels to isomorphic BGPs, ensuring that all isomorphic patterns receive equivalent labels (cite:cites papailiou2015graph).
+These BGPs can effectively substitute joins in query plans and influence join optimization [](cite:cites papailiou2015graph). 
+To ensure uniqueness, canonical labeling algorithms assign distinct labels to isomorphic BGPs, ensuring that all isomorphic patterns receive equivalent labels [](cite:cites papailiou2015graph).
 Other server-side [caching approaches](cite:cites madkour2018worq) utilize data summaries to retain previously computed join optimizations. These summaries occupy less space, offer greater reusability, and still significantly reduce query execution times [caching approaches](cite:cites madkour2018worq). 
 Client-side caching, on the other hand, aims to circumvent expensive requests to SPARQL endpoints by caching complete query results [](cite:cites zhang2018learning) and implementing [proactive query fetching](cite:cites zhang2016secf).
 The efficacy of such strategies heavily depends on the cache hit rate.
@@ -62,7 +62,7 @@ Potential data structures include:
 Learned query optimizers in relational databases literature [](cite:cites yu2020reinforcement, marcus2021bao) are currently witnessing a surge in interest.
 These optimizing agents are trained using reinforcement learning, enabling them to train in an online setting.
 The first step involves converting queries into numeric vectors containing information crucial for query planning. 
-Featurization approaches span from one-hot encoding join predicates (Marcus et al., 2018) to leveraging advanced graph neural networks on the query graph (cite:cites yu2020reinforcement)
+Featurization approaches span from one-hot encoding join predicates (Marcus et al., 2018) to leveraging advanced graph neural networks on the query graph [](cite:cites yu2020reinforcement)
 The second step entails greedily constructing a join plan that minimizes the predicted query execution cost or latency. 
 To predict query execution latency, [ReJOIN](cite:cites marcus2018deep) employs a feed-forward neural network, while more recent works [](cite:cites yu2020reinforcement, marcus2021bao) utilize tree-based neural networks to accommodate the inherent tree structure of join plans.
 Finally, the query is executed, and the latency is recorded.
