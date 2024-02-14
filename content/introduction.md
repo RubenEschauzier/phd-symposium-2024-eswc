@@ -23,7 +23,7 @@ LTQP is an integrated querying approach where the query engine starts with a set
 This approach allows for fine-grained access control, as an LTQP engine will ignore any document it cannot dereference. Furthermore, LTQP requires no prior knowledge of the location of data sources, as this is discovered on the fly.
 Despite these advantages, LTQP still suffers from significant limitations, even in restricted decentralized environments [](cite:cites taelman2023link). 
 First, discerning relevant from irrelevant data sources during query execution is [difficult](cite:cites hartig2016walking), as most information on the data sources is only available after an expensive HTTP request. 
-Second, LTQP algorithms cannot precompute statistical information or indexes of the queried data, as the queried data is unknown beforehand, even if an engine exclusively queries the same data sources. 
+Second, LTQP algorithms cannot precompute statistical information or indexes of the queried data, as the queried data is unknown beforehand.
 Without prior information on the queried data, LTQP often relies on suboptimal query plans, slowing down query execution.
 
 

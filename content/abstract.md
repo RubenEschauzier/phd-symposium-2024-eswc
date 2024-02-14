@@ -5,7 +5,7 @@ In these environments, the number of data vaults can exceed millions, a scale no
 Instead, Link Traversal-based Querying (LTQP) can operate effectively in these environments. 
 LTQP is an integrated querying approach that enables the query engine to begin with zero knowledge of the data to query and discover data sources on the fly.
 The ability to implement access control is inherent to this approach, as inaccessible documents within data vaults can be ignored.
-Additionally, by finding data sources as queries are executed, the engine doesn't need to know in advance where all the possibly millions of decentralized data vaults are located.
+Additionally, by finding data sources as queries are executed, the engine does not need to know in advance where all the possibly millions of decentralized data vaults are located.
 <!-- Need         -->
 However, the absence of prior information on the queried data makes LTQP optimization challenging, resulting in suboptimal query plans. 
 Presently, LTQP is employed for client-side querying, where one engine instance services a single client.
