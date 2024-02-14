@@ -36,7 +36,7 @@ To ensure uniqueness, canonical labeling algorithms assign distinct labels to is
 Other server-side [caching approaches](cite:cites madkour2018worq) utilize data summaries to retain previously computed join optimizations. These summaries occupy less space, offer greater reusability, and still significantly reduce query execution times [caching approaches](cite:cites madkour2018worq). 
 Client-side caching, on the other hand, aims to circumvent expensive requests to SPARQL endpoints by caching complete query results [](cite:cites zhang2018learning) and implementing [proactive query fetching](cite:cites zhang2016secf).
 The efficacy of such strategies heavily depends on the cache hit rate.
-To decide which queries to prefetch, machine learning techniques are employed to predict probable subsequent queries based on the current query[](cite:cites zhang2018learning).
+To decide which queries to prefetch, machine learning techniques are employed to predict probable subsequent queries based on the current query [](cite:cites zhang2018learning).
 If the cache reaches capacity, the least likely cache entity to be requested must be evicted.
 Cache eviction algorithms vary widely, each offering different performance profiles.
 One commonly used algorithm is Least Recently Used (LRU), which simply removes the cache entry that has been least recently requested by the engine.
