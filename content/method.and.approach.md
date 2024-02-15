@@ -5,14 +5,13 @@ The work in this thesis is divided into three packages. The first aims to answer
 ### Identification and Simulation of Client-Specific Usage Patterns
 {:#UsagePatternMethod}
 
-Preceding work on validating the effectiveness of personalized query optimization algorithms, a synthetic benchmark that simulates real-world query patterns is required.
-To identify these query patterns, the first step is a literature review on the presence of sub-communities in social media networks and the usage of linked data in existing applications.
-From this literature review, a theoretical framework of the different usage patterns clients exhibit when using social media and linked data will be created.
+Evaluating the effectiveness of personalized query optimization algorithms requires a benchmark simulating real-world query patterns.
+To identify these patterns, the first step is a literature review on sub-communities in social media networks and the use of linked data in existing applications.
+This literature review will be used in the creation of a theoretical framework outlining various client usage patterns in social media and linked data.
 
-An existing benchmark for querying decentralized environments is [Solidbench](cite:cites taelman2023link), which simulates a social network application's data that is fragmented to represent Solid data vaults. 
-By applying the previously created theoretical framework of client usage patterns, Solidbench will be extended to include simulated client-specific query sequences.
-These sequences of queries and simulated will represent sub-communities present in real-world social networks and the different access patterns identified in the theoretical framework.
-Both the degree of fragmentation and separation between communities and the probability of within-community queries will be adjustable using parameters to allow for a thorough analysis of the impact of our fragmentation and query generation strategies.
+An existing benchmark,  [SolidBench](cite:cites taelman2023link), simulates a fragmented social network application's data to represent Solid data vaults.
+Extending SolidBench using the theoretical framework of client usage patterns allows for simulated client-specific query sequences, representing real-world sub-communities and access patterns.
+The degree of fragmentation and seperation between communities and the probability of within-community queries will be an adjustable parameter to enable the analysis of varying degrees of client-specific query patterns.
 
 ### Caching in the Context of Link Traversal-based Query Processing
 {:#CachingMethod}
@@ -49,12 +48,12 @@ We plan to investigate both the impact of cache size and eviction strategy by te
 
 ### Learned Query Optimization in Link Traversal-based Query Processing
 {:#LearnedOptimizationMethod}
-To answer research question IV, personalized query engines need learned query optimization algorithms that work in an online setting, since LTQP engines do not know what data they will query in advance.
+To answer **RQ IV**, personalized query engines need learned query optimization algorithms that work in an online setting, since LTQP engines do not know what data they will query in advance.
 As such, any offline training algorithm that requires millions of training examples is by definition infeasible.
 My previous work in [SPARQL join order optimization](cite:cites eschauzier2023reinforcement) shows that while RL-based join order optimization is promising, it is computationally expensive to train an optimizer from scratch.
 Instead, [learned query optimization hint approaches](cite:cites marcus2021bao, woltmann2023fastgres) train models that give hints to existing optimizers, like what join operator to use.
 These approaches require significantly less training time and are thus more suitable for online learning.
-To answer research question IV, these relational learned query optimization hints will be adapted for use in LTQP.
+To answer **RQ IV**, these relational learned query optimization hints will be adapted for use in LTQP.
 
 
 
