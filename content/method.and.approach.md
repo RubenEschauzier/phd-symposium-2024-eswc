@@ -11,7 +11,7 @@ This literature review will be used in the creation of a theoretical framework o
 
 An existing benchmark,  [SolidBench](cite:cites taelman2023link), simulates a fragmented social network application's data to represent Solid data vaults.
 Extending SolidBench using the theoretical framework of client usage patterns allows for simulated client-specific query sequences, representing real-world sub-communities and access patterns.
-The degree of fragmentation and seperation between communities and the probability of within-community queries will be an adjustable parameter to enable the analysis of varying degrees of client-specific query patterns.
+The degree of fragmentation and separation between communities and the probability of within-community queries will be an adjustable parameter to enable the analysis of varying degrees of client-specific query patterns.
 
 ### Caching in the Context of Link Traversal-based Query Processing
 {:#CachingMethod}
@@ -37,7 +37,7 @@ Finally, the possible upside of indexes is clear.
 Currently, these indexes are computed as the engine dereferences a document, which is computationally intensive.
 If the engine can reuse indexes from previous queries, we bypass the need to re-compute them.
 
-The fundamental risk of all caching approaches are the overhead of maintaining the cache and determining a cache hit and handling the cache size.
+The fundamental risks of all caching approaches are the overhead of maintaining the cache, the cost of determining a cache hit, and handling the cache size.
 If searching the cache for relevant entries is too computationally intensive and the cache hit rate is low, the engine will spend more time searching the cache than it saves using cache entries.
 To account for this risk, this thesis will first investigate caching approaches that require the least complex cache keys.
 These approaches are either caching entire query result sets or caching data on a per-document basis.
@@ -48,7 +48,7 @@ We plan to investigate both the impact of cache size and eviction strategy by te
 
 ### Learned Query Optimization in Link Traversal-based Query Processing
 {:#LearnedOptimizationMethod}
-To answer **RQ IV**, personalized query engines need learned query optimization algorithms that work in an online setting, since LTQP engines do not know what data they will query in advance.
+To answer **RQ IV**, personalized query engines need learned query optimization algorithms that work in an online setting since LTQP engines do not know what data they will query in advance.
 As such, any offline training algorithm that requires millions of training examples is by definition infeasible.
 My previous work in [SPARQL join order optimization](cite:cites eschauzier2023reinforcement) shows that while RL-based join order optimization is promising, it is computationally expensive to train an optimizer from scratch.
 Instead, [learned query optimization hint approaches](cite:cites marcus2021bao, woltmann2023fastgres) train models that give hints to existing optimizers, like what join operator to use.

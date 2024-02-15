@@ -5,5 +5,5 @@ In this thesis, the query optimization problem is reformulated as an optimizatio
 These correlations are hypothesized to occur due to client-specific usage patterns during the usage of LTQP query engines.
 In this context, personalized query optimization can identify patterns in sequences of queries and use them to adapt the query optimization approach.
 This thesis aims to use caching and learned query optimizers to identify and leverage patterns in query sequences.
-As a result, LTQP engines will become more efficient, without relying on pre-computed statistics and optimizations.
+As a result, LTQP engines will become more efficient without relying on pre-computed statistics and optimizations.
 The enhanced efficiency of LTQP engines will subsequently improve the responsiveness and practicality of decentralized applications, thus bringing a decentralized web one step closer.
