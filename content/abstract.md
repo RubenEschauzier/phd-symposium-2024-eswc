@@ -22,12 +22,12 @@ Despite this, current engines do not utilize client-specific engine usage patter
 <!-- Context      -->
 Current querying approaches lack the capability to accommodate the scale of decentralization envisioned for the presently centralized web. 
 This decentralization would create numerous small data sources instead of a concentration of a few large ones.
-Link Traversal-based Query Processing (LTQP) is a promising candidate for querying this highly decentralized environments.
+Link Traversal-based Query Processing (LTQP) is a promising candidate for querying these highly decentralized environments.
 LTQP is an integrated querying approach that enables the query engine to execute queries with zero knowledge of the queried data and discover data sources on the fly.
 <!-- Need         -->
 However, as the engine does not know in advance what data will be queried, creating an optimized query plan before executing the query is challenging.
 Presently, LTQP is employed for client-side querying, where one engine instance services a single client.
-Despite this, current engines do not utilize client-specific engine usage patterns to implement personalized query optimization algorithms.
+Despite this, current engines do not utilize client-specific engine query usage patterns to implement personalized query optimization algorithms.
 <!-- Task         -->
 This paper will describe the proposed research approach for implementing personalized query optimization techniques, such as caching or learned query optimizers, for LTQP. 
 <!-- Object       -->
