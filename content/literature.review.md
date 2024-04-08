@@ -6,7 +6,7 @@ First, existing approaches for LTQP optimization must be considered. Then, the f
 ### Optimizing LTQP
 {:#OptimizingLTQP}
 
-The literature on LTQP optimization aims to improve both the execution plan of queries and the prioritization of query-relevant documents. Identification of query-relevant documents is crucial and typically relies on link prioritization algorithms, ensuring that these documents are accessed before others. 
+The literature on LTQP optimization aims to improve the execution plan of queries and the prioritization of query-relevant documents. Identifying query-relevant documents is crucial and typically relies on link prioritization algorithms, ensuring that these documents are accessed before others. 
 Presently, LTQP query planning relies on [heuristics](cite:cites hartig2011zero).
 These heuristics, which use no prior knowledge, employ four rules to establish the evaluation order of operators. 
 Firstly, they prioritize triple patterns with a designated seed document, except when the seed document represents vocabulary terms. 
@@ -17,7 +17,7 @@ While [multiple algorithms](cite:cites hartig2016walking) for link prioritizatio
 However, in structured decentralized environments like Solid, previous [work](cite:cites taelman2023link), demonstrates enhanced query execution when leveraging structural information inherent to such environments.
 
 These studies usually assume limited prior data knowledge. 
-However, if our engine frequently queries the same dataset, the hypothesis is that leveraging prior knowledge obtained from previous query executions can greatly boost query performance.
+However, if our engine frequently queries the same dataset, the hypothesis is that leveraging prior knowledge obtained from previous query executions can boost query performance.
 
 ### SPARQL Caching Strategies
 {:#SPARQLCaching}
@@ -40,10 +40,10 @@ In this section, we'll briefly examine data structures used by query engines to 
 While these are typically precomputed offline, making them impractical for LTQP, caching and dynamically discovering them during LTQP query execution could allow the LTQP engine to use traditional SPARQL optimization strategies.
 Potential structures include:
 
-- **Dataset summaries**, such as the [Vocabulary of Interlinked Datasets (VoID)](cite:cites alexander2011describing), describe statistical information of the underlying dataset. This can include the number of triples, distinct subjects or predicates, and the occurrences of predicates.
+- **Dataset summaries**, such as the [Vocabulary of Interlinked Datasets (VoID)](cite:cites alexander2011describing), describe statistical information of the underlying dataset. This information can include the number of triples, distinct subjects or predicates, and the occurrences of predicates.
 - [**Characteristic sets**](cite:cites neumann2011characteristic), which define entities sharing the same predicate set present in the data. Characteristic sets are instrumental in estimating the cardinality of star-shaped joins, thereby enhancing join planning.
-These sets can be estimated using [sampling techniques](cite:cites heling2020estimating) to reduce the cost associated with computing them.
-- **Approximate Membership Functions (AMFs)**, which determine whether a dataset can potentially contain answers to a query or not. Examples of AMFs are [Prefix-Partitioned Bloom Filters (PPBFs)](cite:cites aebeloe2019decentralized) and the [extended Semantically Partitioned Bloom Filters (SPBFs)](cite:cites aebeloe2022lothbrok).
+These sets can be estimated using [sampling techniques](cite:cites heling2020estimating), reducing the cost of computing them.
+- **Approximate Membership Functions (AMFs)**, which determine whether a dataset can potentially contain answers to a query. Examples of AMFs are [Prefix-Partitioned Bloom Filters (PPBFs)](cite:cites aebeloe2019decentralized) and the [extended Semantically Partitioned Bloom Filters (SPBFs)](cite:cites aebeloe2022lothbrok).
 - **Indexes**, which are utilized to accelerate the lookup of matching triples to triple patterns. Engines calculate different combinations of SPO indexes depending on their implementation. 
 
 
@@ -51,9 +51,9 @@ These sets can be estimated using [sampling techniques](cite:cites heling2020est
 {:#LearnedOptimizers}
 
 Recent literature on learned query optimizers in relational databases [](cite:cites yu2020reinforcement, marcus2021bao) is gaining traction, utilizing reinforcement learning for online training. 
-Queries are first transformed into numeric vectors containing information crucial for query planning, with various featurization methods, such as one-hot encoding join predicates [](cite:cites marcus2018deep) or utilizing advanced graph neural networks on the query graph [](cite:cites yu2020reinforcement). 
+Queries are transformed into numeric vectors containing information crucial for query planning, with various featurization methods, such as one-hot encoding join predicates [](cite:cites marcus2018deep) or utilizing advanced graph neural networks on the query graph [](cite:cites yu2020reinforcement). 
 The next step involves greedily constructing a join plan to minimize predicted execution cost or latency. 
 To predict latency, [ReJOIN](cite:cites marcus2018deep) employs a feed-forward neural network, while newer approaches use tree-based neural networks to handle the tree structure of join plans [](cite:cites yu2020reinforcement, marcus2021bao). 
 The model is trained to minimize the difference between predicted and actual query latency or cost. 
-While most approaches train optimizers from scratch, [Bao](cite:cites marcus2021bao) augments traditional optimizers by learning to select optimal query hints from a predefined set, reducing training costs significantly while still improving over traditional optimizers.
-In the SPARQL query optimization literature, several [cardinality estimation techniques](cite:cites schwabe2023cardinality, davitkova2021lmkg) using machine learning are highly successful.
+While most approaches train optimizers from scratch, [Bao](cite:cites marcus2021bao) augments traditional optimizers by learning to select optimal query hints from a predefined set, reducing training costs significantly while improving over traditional optimizers.
+In the SPARQL query optimization literature, several [cardinality estimation techniques](cite:cites schwabe2023cardinality) using machine learning are highly successful.

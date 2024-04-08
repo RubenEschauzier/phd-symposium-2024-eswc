@@ -20,10 +20,9 @@ Despite this, current engines do not utilize client-specific engine usage patter
 <!-- Perspectives -->
 
 <!-- Context      -->
-Current querying approaches lack the capability to accommodate the scale of decentralization envisioned for the presently centralized web. 
-This decentralization would create numerous small data sources instead of a concentration of a few large ones.
-Link Traversal-based Query Processing (LTQP) is a promising candidate for querying these highly decentralized environments.
-LTQP is an integrated querying approach that enables the query engine to execute queries with zero knowledge of the queried data and discover data sources on the fly.
+The scale of decentralization envisioned for the presently centralized web requires querying approaches that can query numerous small data sources
+instead of a few large ones.
+Link Traversal-based Query Processing (LTQP) is a promising candidate for querying these highly decentralized environments that executes queries with zero knowledge of the queried data and discovers data sources on the fly.
 <!-- Need         -->
 However, as the engine does not know in advance what data will be queried, creating an optimized query plan before executing the query is challenging.
 Presently, LTQP is employed for client-side querying, where one engine instance services a single client.
@@ -35,7 +34,7 @@ The objective is to improve query optimization algorithms through the analysis o
 <!-- Findings     -->
 Personalized optimization will be based on existing work in SPARQL optimization literature and fundamental database theory, adapted to LTQP, and aimed at repeating their success in reducing query execution time.
 <!-- Conclusion   -->
-As a result, query engines will gain the capability to query large decentralized environments, thereby enabling applications to function within this emerging decentralized web landscape.
+As a result, query engines will gain the capability to query large decentralized environments, enabling applications to function within this emerging decentralized web landscape.
 <!-- Perspectives -->
 
 <!-- 
