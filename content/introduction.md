@@ -18,7 +18,7 @@ LTQP is an integrated querying approach where the query engine dynamically disco
 This approach allows for fine-grained access control, as an LTQP engine can ignore any document it cannot dereference and continue traversing to new documents. 
 Furthermore, LTQP requires no prior knowledge of the location of data sources, as this is discovered on the fly.
 
-Despite these advantages, LTQP still suffers from [significant limitations](cite:cites taelman2023link), as due to the lack of prior knowledge on the queried data, discerning relevant from irrelevant data sources during query execution is [difficult](cite:cites hartig2016walking), and query planning without pre-computed statistics often produces suboptimal query plans.
+Despite these advantages, LTQP still suffers from [significant limitations](cite:cites taelman2023link), as discerning relevant from irrelevant data sources during query execution is [difficult](cite:cites hartig2016walking), and query planning without pre-computed statistics often produces suboptimal query plans.
 Current literature on LTQP considers each query as a separate event without considering the usage of shared engine state between query executions. 
 However, LTQP is a client-side query approach where an engine instance exclusively services a single client.
 As seen in, for example, [browser usage](cite:cites adar2008large), clients exhibit patterns when using applications or browsing the internet. 
@@ -29,6 +29,3 @@ Query engines should quantify these patterns and leverage them for significantly
 When an engine has already seen a large portion of the data in previous queries, it can use previously computed answers, statistics, and indexes to improve query performance. 
 To address this gap in research, _I will reformulate the query optimization problem from singular queries to a sequence of (possibly) correlated queries._
 As such, query engines can apply personalized client-specific query optimizations based on the statistical properties of these patterns to improve average query sequence execution time.
-
-
-Following this introduction,  [](#LiteratureReview) will elaborate on problem-relevant optimization techniques, which will be used to define the problem statement in [](#ProblemStatementandContributions). The research methodology and evaluation approaches are outlined in [](#method) and [](#EvaluationPlan) respectively. Finally, preliminary results are described in [](#PreliminaryResults), and a conclusion is given in [](#Conclusion).

@@ -11,7 +11,7 @@ This literature review will be used in the creation of a theoretical framework o
 
 An existing benchmark,  [SolidBench](cite:cites taelman2023link), simulates a social network application's data that is fragmented to represent Solid data vaults.
 Extending SolidBench using the theoretical framework of client query usage patterns allows for simulated client-specific query sequences, representing real-world sub-communities and access patterns.
-The degree of fragmentation and separation between communities and the probability of within-community queries will be an adjustable parameter to enable the analysis of varying degrees of client-specific query patterns.
+The degree of fragmentation and separation between communities and the probability of within-community queries will be an adjustable parameter to enable the analysis of how varying degrees of client-specific query patterns influence personalized query optimization performance.
 
 ### Caching in the Context of Link Traversal-based Query Processing
 {:#CachingMethod}
@@ -45,14 +45,13 @@ After successfully applying the straightforward caching approaches complex tasks
 For cache invalidation, we must account for the possibly rapidly changing data landscape in social media applications. 
 However, even when many _new_ posts are added, cached information for old and unchanged content remains valid and can improve query execution performance.
 Furthermore, even if the query is primarily over the subset of data that rapidly changes, caching the static content in social-media applications can inform the engine of their (ir)relevancy, reducing the queried data size and improving performance.
-To determine whether a cached entity is valid, we can use the ETag header or introduce solid-pod side data structures that indicate the last change to a resource.
+To determine whether a cached entity is valid, we can use the ETag header or introduce data vault server-side data structures that indicate the last change to a resource.
 
 ### Learned Query Optimization in Link Traversal-based Query Processing
 {:#LearnedOptimizationMethod}
 To answer **RQ IV**, personalized query engines need learned query optimization algorithms that work in an online setting since LTQP engines do not know what data they will query in advance.
-As such, any offline training algorithm that requires millions of training examples is by definition infeasible.
+As such, any offline training algorithm that requires millions of training examples is infeasible.
 My previous work in [SPARQL join order optimization](cite:cites eschauzier2023reinforcement) shows that while reinforcement learning-based join order optimization is promising, it is computationally expensive to train an optimizer from scratch.
 Instead, [learned query optimization hint approaches](cite:cites marcus2021bao, woltmann2023fastgres) train models that give hints to existing optimizers, like what join operator to use.
 These approaches require significantly less training time and are thus more suitable for online learning.
-To answer **RQ IV & V**, these relational learned query optimization hints will be adapted for use in LTQP.
-
+To answer **RQ IV & V**, relational learned query optimization hints will be adapted for use in LTQP.

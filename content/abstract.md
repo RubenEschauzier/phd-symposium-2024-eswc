@@ -22,7 +22,7 @@ Despite this, current engines do not utilize client-specific engine usage patter
 <!-- Context      -->
 The scale of decentralization envisioned for the presently centralized web requires querying approaches that can query numerous small data sources
 instead of a few large ones.
-Link Traversal-based Query Processing (LTQP) is a promising candidate for querying these highly decentralized environments that executes queries with zero knowledge of the queried data and discovers data sources on the fly.
+Link Traversal-based Query Processing (LTQP) is a promising candidate for querying highly decentralized environments that executes queries with zero knowledge of the queried data and discovers data sources on the fly.
 <!-- Need         -->
 However, as the engine does not know in advance what data will be queried, creating an optimized query plan before executing the query is challenging.
 Presently, LTQP is employed for client-side querying, where one engine instance services a single client.

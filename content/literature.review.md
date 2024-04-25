@@ -6,15 +6,15 @@ First, existing approaches for LTQP optimization must be considered. Then, the f
 ### Optimizing LTQP
 {:#OptimizingLTQP}
 
-The literature on LTQP optimization aims to improve the execution plan of queries and the prioritization of query-relevant documents. Identifying query-relevant documents is crucial and typically relies on link prioritization algorithms, ensuring that these documents are accessed before others. 
-Presently, LTQP query planning relies on [heuristics](cite:cites hartig2011zero).
+The literature on LTQP optimization aims to improve the execution plan of queries and the prioritization of query-relevant documents. Identifying query-relevant documents is relies on link prioritization algorithms, which aim to identify query-relevant documents and access them first. 
+On the other hand, LTQP query planning relies on [heuristics](cite:cites hartig2011zero).
 These heuristics, which use no prior knowledge, employ four rules to establish the evaluation order of operators. 
 Firstly, they prioritize triple patterns with a designated seed document, except when the seed document represents vocabulary terms. 
 Moreover, they favor query plans featuring filtering triple patterns in proximity to the seed triple pattern.
 Finally, they create an order where preceding triple patterns contain at least one query variable of the subsequent pattern.
 
 While [multiple algorithms](cite:cites hartig2016walking) for link prioritization exist for the Open Linked Data Web, none show a definitive advantage over others.
-However, in structured decentralized environments like Solid, previous [work](cite:cites taelman2023link), demonstrates enhanced query execution when leveraging structural information inherent to such environments.
+However, in structured decentralized environments like Solid, previous [work](cite:cites taelman2023link), demonstrates improved query execution speed when leveraging structural information inherent to such environments.
 
 These studies usually assume limited prior data knowledge. 
 However, if our engine frequently queries the same dataset, the hypothesis is that leveraging prior knowledge obtained from previous query executions can boost query performance.
@@ -50,10 +50,13 @@ These sets can be estimated using [sampling techniques](cite:cites heling2020est
 ### Learned Optimizers
 {:#LearnedOptimizers}
 
-Recent literature on learned query optimizers in relational databases [](cite:cites yu2020reinforcement, marcus2021bao) is gaining traction, utilizing reinforcement learning for online training. 
+Recent literature on learned query optimizers in relational databases [](cite:cites yu2020reinforcement, marcus2021bao) is gaining traction, utilizing reinforcement learning to train the optimizer. 
 Queries are transformed into numeric vectors containing information crucial for query planning, with various featurization methods, such as one-hot encoding join predicates [](cite:cites marcus2018deep) or utilizing advanced graph neural networks on the query graph [](cite:cites yu2020reinforcement). 
 The next step involves greedily constructing a join plan to minimize predicted execution cost or latency. 
 To predict latency, [ReJOIN](cite:cites marcus2018deep) employs a feed-forward neural network, while newer approaches use tree-based neural networks to handle the tree structure of join plans [](cite:cites yu2020reinforcement, marcus2021bao). 
 The model is trained to minimize the difference between predicted and actual query latency or cost. 
 While most approaches train optimizers from scratch, [Bao](cite:cites marcus2021bao) augments traditional optimizers by learning to select optimal query hints from a predefined set, reducing training costs significantly while improving over traditional optimizers.
 In the SPARQL query optimization literature, several [cardinality estimation techniques](cite:cites schwabe2023cardinality) using machine learning are highly successful.
+Learned optimizers operate under the assumption that there is prior knowledge of the data to be queried, allowing models to be trained offline.
+However, in the case of an LTQP engine, the data queried is not known beforehand and dependent on the queries issued, rendering offline model training impractical. 
+Thus, the model must learn optimization strategies dynamically as users actively issue queries.

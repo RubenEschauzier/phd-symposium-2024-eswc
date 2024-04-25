@@ -7,7 +7,9 @@ As such, the engine will keep a state that stores optimization-relevant informat
 <!-- Personalized query optimization involves caching auxiliary data structures, (intermediate) results, and training a client-specific learned query optimizer. -->
 The hypothesis underlying this work is: 
 
- - **Hypothesis 1:** Personalized query engines can improve query execution times by an order of magnitude compared to non-personalized query engines by leveraging client-specific query patterns to improve query optimization. 
+
+    
+ - **Hypothesis 1:** Personalized query engines can significantly improve query execution times compared to non-personalized query engines by leveraging client-specific query patterns to improve query optimization. 
  
 Before any work on personalized query optimization can proceed, real-world client query usage patterns must be identified.
 These patterns can include but are not limited to, application data requirements, query requirements for different applications, and data update frequency.
