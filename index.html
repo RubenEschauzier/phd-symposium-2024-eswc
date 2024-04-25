@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title property="foaf:name schema:name">Personalized Query Engine Optimization for Link Traversal-based Query Processing over Structured Decentralized Environments </title>
+  <link rel="stylesheet" media="screen" href="styles/screen.css" />
+  <link rel="stylesheet" media="print"  href="styles/print.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <meta name="citation_title" content="Personalized Query Engine Optimization for Link Traversal-based Query Processing over Structured Decentralized Environments ">
+  <meta name="citation_author" content="Ruben Eschauzier" />
+  
+  <meta name="citation_publication_date" content="2024/04/25" />
+</head>
+
+<body prefix="dctypes: http://purl.org/dc/dcmitype/ pimspace: http://www.w3.org/ns/pim/space# rsa: http://www.w3.org/ns/auth/rsa# cert: http://www.w3.org/ns/auth/cert# wgs: http://www.w3.org/2003/01/geo/wgs84_pos# biblio: http://purl.org/net/biblio# bibo: http://purl.org/ontology/bibo/ book: http://purl.org/NET/book/vocab# ov: http://open.vocab.org/terms/ doap: http://usefulinc.com/ns/doap# dbr: http://dbpedia.org/resource/ dbp: http://dbpedia.org/property/ sio: http://semanticscience.org/resource/ opmw: http://www.opmw.org/ontology/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ cito: http://purl.org/spar/cito/ fabio: http://purl.org/spar/fabio/ solid: http://www.w3.org/ns/solid/terms# acl: http://www.w3.org/ns/auth/acl# dio: https://w3id.org/dio# lsc: http://linkedscience.org/lsc/ns#" typeof="schema:CreativeWork sioc:Post prov:Entity lsc:Research">
+  <header>
+  <h1 id="personalized-query-engine-optimization-for-link-traversal-based-query-processing-over-structured-decentralized-environments">Personalized Query Engine Optimization for Link Traversal-based Query Processing over Structured Decentralized Environments</h1>
+
+  <ul id="authors">
+    <li><a rev="lsc:participatesIn" property="foaf:maker schema:creator schema:author schema:publisher" href="" typeof="foaf:Person schema:Person" resource="">Ruben Eschauzier</a></li>
+  </ul>
+
+  <ul id="affiliations">
+    <li id="myaffiliation">Ghent University - Imec.</li>
+  </ul>
+
+  <section id="abstract" inlist="" rel="schema:hasPart" resource="#abstract">
+<div datatype="rdf:HTML" property="schema:description">
+      <h2 property="schema:name">Abstract</h2>
+      <!-- Context      -->
+      <!-- Decentralized environments, like Solid, utilize personal data vaults that expose documents that require fine-grained access control.
+In these environments, the number of data vaults can exceed millions, a scale not supported by federated querying algorithms. 
+Instead, Link Traversal-based Querying (LTQP) can operate effectively in these environments. 
+LTQP is an integrated querying approach that enables the query engine to begin with zero knowledge of the data to query and discover data sources on the fly.
+The ability to implement access control is inherent to this approach, as inaccessible documents within data vaults can be ignored.
+Additionally, by finding data sources as queries are executed, the engine does not need to know in advance where all the possibly millions of decentralized data vaults are located. -->
+      <!-- Need         -->
+      <!-- However, the absence of prior information on the queried data makes LTQP optimization challenging, resulting in suboptimal query plans. 
+Presently, LTQP is employed for client-side querying, where one engine instance services a single client.
+Despite this, current engines do not utilize client-specific engine usage patterns to implement personalized query optimization algorithms. -->
+      <!-- Task         -->
+      <!-- This paper will describe the proposed research approach for implementing personalized query optimization techniques, such as caching or learned query optimizers, for LTQP.  -->
+      <!-- Object       -->
+      <!-- The objective is to improve query optimization algorithms through the analysis of historical query engine usage, instead of depending on additional prior information.  -->
+      <!-- Findings     -->
+      <!-- Personalized optimization will be based on existing work in SPARQL optimization literature and fundamental database theory, adapted to LTQP, and aimed at repeating their success in reducing query execution time. -->
+      <!-- Conclusion   -->
+      <!-- Perspectives -->
+
+      <!-- Context      -->
+      <p>The scale of decentralization envisioned for the presently centralized web requires querying approaches that can query numerous small data sources
+instead of a few large ones.
+Link Traversal-based Query Processing (LTQP) is a promising candidate for querying highly decentralized environments that executes queries with zero knowledge of the queried data and discovers data sources on the fly.
+<!-- Need         -->
+However, as the engine does not know in advance what data will be queried, creating an optimized query plan before executing the query is challenging.
+Presently, LTQP is employed for client-side querying, where one engine instance services a single client.
+Despite this, current engines do not utilize client-specific engine query usage patterns to implement personalized query optimization algorithms.
+<!-- Task         -->
+This paper will describe the proposed research approach for implementing personalized query optimization techniques, such as caching or learned query optimizers, for LTQP. 
+<!-- Object       -->
+The objective is to improve query optimization algorithms through the analysis of historical query engine usage, instead of depending on additional prior information. 
+<!-- Findings     -->
+Personalized optimization will be based on existing work in SPARQL optimization literature and fundamental database theory, adapted to LTQP, and aimed at repeating their success in reducing query execution time.
+<!-- Conclusion   -->
+As a result, query engines will gain the capability to query large decentralized environments, enabling applications to function within this emerging decentralized web landscape.
+<!-- Perspectives --></p>
+
+      <!-- 
+
+
+Current querying approaches do not support the scale of decentralization of the currently centralized web.
+The resulting decentralized environment would spread personal, possibly access-controlled data, over many smaller sources.
+Link Traversal-based Query Processing (LTQP) is an approach that could deal with this level of decentralization of access-controlled data.
+Current
+More focus on personal
+Current federation algorithms do not support the scale of decentralization of centrlaized web now. 
+Personal data is spread over many smaller sources.
+In this environment, LTQP becomes interesting as data is spread and personal + other reasons so LTQP again interesting
+LTQP still slow at this scale
+As we're client-side we do optimization to make more scalable.
+When moving to decentrilize current centralized environments we need query approach that do many sourcre queries with access control
+This scale not supported by current query algorithms (why?)
+We propose to investigate use of LTQP as it solves these issues .... in this way
+(use documents consistently)
+Docuemnts may be access controlled, which can be taken into account during query processing.
+Challenge in this space is optimizing query plans without any prior information.  -->
+    </div>
+</section>
+
+</header>
+
+<main>
+  <!-- Add sections by specifying their file name, excluding the '.md' suffix. -->
+  <section id="introduction" inlist="" rel="schema:hasPart" resource="#introduction">
+<div datatype="rdf:HTML" property="schema:description">
+      <h2 property="schema:name">Introduction</h2>
+      <p>Currently, web user data is stored in centralized silos controlled by massive companies like Facebook, Google, and Amazon. 
+These companies control the data generated by web users, restricting innovation <span class="references">[<a href="#ref-1">1</a>]</span>.
+Rather than adopting a ‘vertical’ approach where all user data from a single service is stored in one central location, various decentralization efforts <span class="references">[<a href="#ref-2">2</a>, <a href="#ref-3">3</a>]</span>, advocate for a ‘horizontal’ approach. 
+This approach disperses data, resulting in many smaller data entities. 
+For instance, all data pertaining to an individual would be stored in a singular location.
+As a result, data becomes highly decentralized, spread over possibly millions of sources. 
+Decentralized querying approaches must support cross-source queries, as, for example, social media applications frequently aggregate content from various users to construct a homepage.
+Initiatives like Solid use the Resource Description Framework (RDF) to store data in a machine-readable format. 
+Traditional SPARQL query algorithms are designed to query a singular RDF store, which is known beforehand.
+This approach is insufficient for decentralized environments, as there are multiple sources, and the number of sources is not known beforehand.</p>
+
+      <p>Federated SPARQL query algorithms <span class="references">[<a href="#ref-4">4</a>, <a href="#ref-5">5</a>]</span> are built to query a few large sources <span class="references">[<a href="#ref-6">6</a>, <a href="#ref-7">7</a>]</span> known ahead of time and do not support fine-grained access control.
+This is insufficient for decentralized environments comprising numerous, small, and highly personal data requiring access control. 
+Instead, querying over these decentralized environments can be done by Link Traversal-based Query Processing (LTQP) <span class="references">[<a href="#ref-8">8</a>]</span>.
+LTQP is an integrated querying approach where the query engine dynamically discovers sources by following hyperlinks discovered in documents of previously dereferenced URIs. 
+This approach allows for fine-grained access control, as an LTQP engine can ignore any document it cannot dereference and continue traversing to new documents. 
+Furthermore, LTQP requires no prior knowledge of the location of data sources, as this is discovered on the fly.</p>
+
+      <p>Despite these advantages, LTQP still suffers from significant limitations <span class="references">[<a href="#ref-9">9</a>]</span>, as discerning relevant from irrelevant data sources during query execution is difficult <span class="references">[<a href="#ref-10">10</a>]</span>, and query planning without pre-computed statistics often produces suboptimal query plans.
+Current literature on LTQP considers each query as a separate event without considering the usage of shared engine state between query executions. 
+However, LTQP is a client-side query approach where an engine instance exclusively services a single client.
+As seen in, for example, browser usage <span class="references">[<a href="#ref-11">11</a>]</span>, clients exhibit patterns when using applications or browsing the internet. 
+These patterns translate to observable patterns in the queries issued to the query engine.
+For example, users might primarily use a singular application, which only requires a subset of all data available in the decentralized ecosystem. 
+Additionally, users form sub-communities <span class="references">[<a href="#ref-12">12</a>]</span> within applications, which can potentially induce sub-graphs of data that are more frequently accessed by members of the sub-community. 
+Query engines should quantify these patterns and leverage them for significantly improved query optimization. 
+When an engine has already seen a large portion of the data in previous queries, it can use previously computed answers, statistics, and indexes to improve query performance. 
+To address this gap in research, <em>I will reformulate the query optimization problem from singular queries to a sequence of (possibly) correlated queries.</em>
+As such, query engines can apply personalized client-specific query optimizations based on the statistical properties of these patterns to improve average query sequence execution time.</p>
+    </div>
+</section>
+
+  <section id="LiteratureReview" inlist="" rel="schema:hasPart" resource="#LiteratureReview">
+<div datatype="rdf:HTML" property="schema:description">
+      <h2 property="schema:name">State of the Art</h2>
+
+      <p>First, existing approaches for LTQP optimization must be considered. Then, the following sections will discuss existing SPARQL optimization approaches that can be adapted for personalized LTQP optimization.</p>
+
+      <h3 id="OptimizingLTQP">Optimizing LTQP</h3>
+
+      <p>The literature on LTQP optimization aims to improve the execution plan of queries and the prioritization of query-relevant documents. Identifying query-relevant documents is relies on link prioritization algorithms, which aim to identify query-relevant documents and access them first. 
+On the other hand, LTQP query planning relies on heuristics <span class="references">[<a href="#ref-13">13</a>]</span>.
+These heuristics, which use no prior knowledge, employ four rules to establish the evaluation order of operators. 
+Firstly, they prioritize triple patterns with a designated seed document, except when the seed document represents vocabulary terms. 
+Moreover, they favor query plans featuring filtering triple patterns in proximity to the seed triple pattern.
+Finally, they create an order where preceding triple patterns contain at least one query variable of the subsequent pattern.</p>
+
+      <p>While multiple algorithms <span class="references">[<a href="#ref-10">10</a>]</span> for link prioritization exist for the Open Linked Data Web, none show a definitive advantage over others.
+However, in structured decentralized environments like Solid, previous work <span class="references">[<a href="#ref-9">9</a>]</span>, demonstrates improved query execution speed when leveraging structural information inherent to such environments.</p>
+
+      <p>These studies usually assume limited prior data knowledge. 
+However, if our engine frequently queries the same dataset, the hypothesis is that leveraging prior knowledge obtained from previous query executions can boost query performance.</p>
+
+      <h3 id="SPARQLCaching">SPARQL Caching Strategies</h3>
+
+      <p>In SPARQL, server-side caching optimizes query performance by storing and reusing computations <span class="references">[<a href="#ref-14">14</a>, <a href="#ref-15">15</a>]</span>. 
+While caching entire query results is possible, most strategies focus on frequently encountered basic graph patterns (BGPs) <span class="references">[<a href="#ref-15">15</a>]</span>. 
+These BGPs can substitute joins in query plans and influence join optimization <span class="references">[<a href="#ref-14">14</a>]</span>. 
+Canonical labeling algorithms assign distinct labels to isomorphic BGPs, ensuring that all isomorphic BGPs receive equivalent labels <span class="references">[<a href="#ref-14">14</a>]</span>.
+Other server-side caching approaches <span class="references">[<a href="#ref-15">15</a>]</span> utilize data summaries to compute join reductions and cache these reductions rather than caching query results. 
+Client-side caching aims to minimize requests to SPARQL endpoints by caching complete query results <span class="references">[<a href="#ref-16">16</a>]</span> and implementing proactive query fetching <span class="references">[<a href="#ref-17">17</a>]</span>.
+The efficacy of such strategies heavily depends on the cache hit rate.
+To decide which queries to prefetch, machine learning techniques predict probable subsequent queries based on the current query <span class="references">[<a href="#ref-16">16</a>]</span>.
+When the cache reaches capacity, cache eviction algorithms, such as Least Recently Used (LRU), remove the least recently requested entry.</p>
+
+      <h3 id="AuxillaryDataStructures">Auxillary Data Structures</h3>
+
+      <p>In this section, we’ll briefly examine data structures used by query engines to optimize query plans. 
+While these are typically precomputed offline, making them impractical for LTQP, caching and dynamically discovering them during LTQP query execution could allow the LTQP engine to use traditional SPARQL optimization strategies.
+Potential structures include:</p>
+
+      <ul>
+        <li><strong>Dataset summaries</strong>, such as the Vocabulary of Interlinked Datasets (VoID) <span class="references">[<a href="#ref-18">18</a>]</span>, describe statistical information of the underlying dataset. This information can include the number of triples, distinct subjects or predicates, and the occurrences of predicates.</li>
+        <li><strong>Characteristic sets</strong> <span class="references">[<a href="#ref-19">19</a>]</span>, which define entities sharing the same predicate set present in the data. Characteristic sets are instrumental in estimating the cardinality of star-shaped joins, thereby enhancing join planning.
+These sets can be estimated using sampling techniques <span class="references">[<a href="#ref-20">20</a>]</span>, reducing the cost of computing them.</li>
+        <li><strong>Approximate Membership Functions (AMFs)</strong>, which determine whether a dataset can potentially contain answers to a query. Examples of AMFs are Prefix-Partitioned Bloom Filters (PPBFs) <span class="references">[<a href="#ref-21">21</a>]</span> and the extended Semantically Partitioned Bloom Filters (SPBFs) <span class="references">[<a href="#ref-22">22</a>]</span>.</li>
+        <li><strong>Indexes</strong>, which are utilized to accelerate the lookup of matching triples to triple patterns. Engines calculate different combinations of SPO indexes depending on their implementation.</li>
+      </ul>
+
+      <h3 id="LearnedOptimizers">Learned Optimizers</h3>
+
+      <p>Recent literature on learned query optimizers in relational databases <span class="references">[<a href="#ref-23">23</a>, <a href="#ref-24">24</a>]</span> is gaining traction, utilizing reinforcement learning to train the optimizer. 
+Queries are transformed into numeric vectors containing information crucial for query planning, with various featurization methods, such as one-hot encoding join predicates <span class="references">[<a href="#ref-25">25</a>]</span> or utilizing advanced graph neural networks on the query graph <span class="references">[<a href="#ref-23">23</a>]</span>. 
+The next step involves greedily constructing a join plan to minimize predicted execution cost or latency. 
+To predict latency, ReJOIN <span class="references">[<a href="#ref-25">25</a>]</span> employs a feed-forward neural network, while newer approaches use tree-based neural networks to handle the tree structure of join plans <span class="references">[<a href="#ref-23">23</a>, <a href="#ref-24">24</a>]</span>. 
+The model is trained to minimize the difference between predicted and actual query latency or cost. 
+While most approaches train optimizers from scratch, Bao <span class="references">[<a href="#ref-24">24</a>]</span> augments traditional optimizers by learning to select optimal query hints from a predefined set, reducing training costs significantly while improving over traditional optimizers.
+In the SPARQL query optimization literature, several cardinality estimation techniques <span class="references">[<a href="#ref-26">26</a>]</span> using machine learning are highly successful.
+Learned optimizers operate under the assumption that there is prior knowledge of the data to be queried, allowing models to be trained offline.
+However, in the case of an LTQP engine, the data queried is not known beforehand and dependent on the queries issued, rendering offline model training impractical. 
+Thus, the model must learn optimization strategies dynamically as users actively issue queries.</p>
+    </div>
+</section>
+
+  <section id="ProblemStatementandContributions" inlist="" rel="schema:hasPart" resource="#ProblemStatementandContributions">
+<div datatype="rdf:HTML" property="schema:description">
+      <h2 property="schema:name">Problem Statement and Contributions</h2>
+
+      <p>Building upon the existing work in <a href="#LiteratureReview">Section 2</a>, this thesis will use personalized query optimization to overcome the performance issues outlined in <a href="#introduction">Section 1</a>.
+Personalized query optimization adapts the optimization procedure to the client-specific query usage patterns of the engine. 
+As such, the engine will keep a state that stores optimization-relevant information.
+<!-- Personalized query optimization involves caching auxiliary data structures, (intermediate) results, and training a client-specific learned query optimizer. -->
+The hypothesis underlying this work is:</p>
+
+      <ul>
+        <li><strong>Hypothesis 1:</strong> Personalized query engines can significantly improve query execution times compared to non-personalized query engines by leveraging client-specific query patterns to improve query optimization.</li>
+      </ul>
+
+      <p>Before any work on personalized query optimization can proceed, real-world client query usage patterns must be identified.
+These patterns can include but are not limited to, application data requirements, query requirements for different applications, and data update frequency.
+After the identification of query patterns, they should be translated to an extensive benchmark that can validate the performance of personalized query optimization algorithms in real-world applications.
+As such, we define research question I.</p>
+
+      <ul>
+        <li><strong>RQ I:</strong> How do client-specific query patterns manifest in real-world usage scenarios, and how can we accurately capture and represent them within a benchmark?</li>
+      </ul>
+
+      <p>This thesis will explore two approaches to personalized optimization. The use of caching auxiliary data structures or (intermediate) results, and learned query optimizers.
+Two natural candidates for cached content are intermediate results sets for queries or auxiliary data structures that improve query planning.
+However, LTQP uses the <em>cMatch</em> criterion <span class="references">[<a href="#ref-27">27</a>]</span> to extract links to dereference, changing the queried data depending on what predicates are used in the query.
+Consequently, queries with overlapping sub-BGPs, but different sets of predicates will dereference different documents during query execution.
+As reusing the result set for the overlapping sub-BGPs of one query on another can generate wrong results, it is vital to evaluate the effectiveness of caching strategies under these conditions.
+These conditions lead to research questions II &amp; III.</p>
+
+      <ul>
+        <li><strong>RQ II:</strong> Can (intermediate) result caching be effectively utilized during Link Traversal-based Query Processing to enhance query execution performance when the queried subweb of data changes between queries?</li>
+        <li><strong>RQ III:</strong> How does caching auxiliary data structures during Link Traversal-based Query Processing impact the performance of query execution?</li>
+      </ul>
+
+      <p>Our caching approaches will build upon and extend methods introduced in <a href="#LiteratureReview">Section 2</a>. The primary challenge to overcome in LTQP is the dynamic nature of the queried data, as it can differ between queries, influencing cache validity.</p>
+
+      <p>Finally, learned optimizers are a promising candidate for extracting query usage patterns from sequences of queries.
+Formulating the client query usage patterns as a data-generating process (DGP) and the queries as samples from this process, we can use learning methods to approximate this DGP. 
+However, learning methods can be data and compute expensive and require exploring sub-optimal query plans to learn the entire optimization space.
+As learned optimizers will be trained in an online scenario where the client actively uses the engine, we must design any solutions with data and compute efficiency in mind.
+This gives us research questions IV &amp; V:</p>
+
+      <ul>
+        <li><strong>RQ IV</strong> Can training a query optimizer lead to improved query performance in Link Traversal-based Query Processing?</li>
+        <li><strong>RQ V:</strong> Does the query performance benefit of training a query optimizer during query execution outweigh the model training cost?</li>
+      </ul>
+
+      <p>To answer these research questions, the proposed methods will build upon existing literature for learned cardinality and join plan estimation. From this foundation, data and compute efficiency approaches will be included to facilitate the usage of learned estimation for LTQP.</p>
+    </div>
+</section>
+
+  <section id="method" inlist="" rel="schema:hasPart" resource="#method">
+<div datatype="rdf:HTML" property="schema:description">
+      <h2 property="schema:name">Research Methodology and Approach</h2>
+      <p>The work in this thesis is divided into three packages. The first aims to answer <strong>RQ I</strong>, the second provides an answer to <strong>RQ II &amp; III</strong>, and finally the third will investigate <strong>RQ IV &amp; V</strong>.</p>
+
+      <h3 id="UsagePatternMethod">Identification and Simulation of Client-Specific Query Usage Patterns</h3>
+
+      <p>Evaluating the effectiveness of personalized query optimization algorithms requires a benchmark simulating real-world query patterns.
+To identify these patterns, the first step is a literature review on sub-communities in social media networks and the use of linked data in existing applications.
+This literature review will be used in the creation of a theoretical framework outlining various client query usage patterns in social media and linked data.</p>
+
+      <p>An existing benchmark,  SolidBench <span class="references">[<a href="#ref-9">9</a>]</span>, simulates a social network application’s data that is fragmented to represent Solid data vaults.
+Extending SolidBench using the theoretical framework of client query usage patterns allows for simulated client-specific query sequences, representing real-world sub-communities and access patterns.
+The degree of fragmentation and separation between communities and the probability of within-community queries will be an adjustable parameter to enable the analysis of how varying degrees of client-specific query patterns influence personalized query optimization performance.</p>
+
+      <h3 id="CachingMethod">Caching in the Context of Link Traversal-based Query Processing</h3>
+
+      <p>While caching entire query results is straightforward, caching intermediate results in LTQP is complicated as the queried data changes depending on the query predicates.
+Intermediate result caches must be aware of the underlying documents that produced these results to allow the engine to identify over what data these intermediate results are valid and what data is not included in the cached results.
+To answer <strong>RQ II</strong>, an adaptive query planner that can adaptively change its execution plan to include intermediate results that are valid for the currently dereferenced documents is needed.
+Using cached intermediate results, we can reuse computation, quickly check document cache validity through ETags, and produce first results faster.
+This query planner will need to consider three cases. 
+The first case is where the intermediate results contain results produced using undiscovered data. 
+In this case, careful pruning of cache elements is required.
+Second, the cache can contain less data than discovered during query execution.
+In this case, the query planner should first use all valid intermediate results to quickly produce answers before including the additional data in the query execution to ensure result completeness.
+Finally, these two cases can occur simultaneously, which will require a combination of the solutions of the previous cases.
+The proposed query planner must be adaptive, as the validity of the cache can change as more documents are discovered.</p>
+
+      <p>For <strong>RQ III</strong>, an investigation into the effect of the data structures described in <a href="#AuxillaryDataStructures">Subsection 2.3</a> is required.
+Data structures like approximate membership functions, dataset summaries, and characteristic sets can be used to determine whether a document can produce answers to a given query.
+Documents that will never return results to the query can be pruned, reducing the queried data size and improving query execution times.
+Additionally, dataset summaries and characteristic sets can be used to improve cardinality estimation as they are discovered.
+This allows the engine to improve its query plan resulting in reduced computational complexity of the query.
+Finally, the possible upside of indexes is clear.
+Currently, these indexes are computed as the engine dereferences a document, which is computationally intensive.
+If the engine can reuse indexes from previous queries, we bypass the need to re-compute them.</p>
+
+      <p>The fundamental risks of all caching approaches are the overhead of maintaining the cache and the possibility of cache invalidation.
+If searching the cache for relevant entries is too computationally intensive and the cache hit rate is low, the engine will spend more time searching the cache than it saves using cache entries.
+To account for this risk, this thesis will first investigate caching approaches requiring the least complex cache keys, like document-based caching, or query result caching.
+After successfully applying the straightforward caching approaches complex tasks will be considered.
+For cache invalidation, we must account for the possibly rapidly changing data landscape in social media applications. 
+However, even when many <em>new</em> posts are added, cached information for old and unchanged content remains valid and can improve query execution performance.
+Furthermore, even if the query is primarily over the subset of data that rapidly changes, caching the static content in social-media applications can inform the engine of their (ir)relevancy, reducing the queried data size and improving performance.
+To determine whether a cached entity is valid, we can use the ETag header or introduce data vault server-side data structures that indicate the last change to a resource.</p>
+
+      <h3 id="LearnedOptimizationMethod">Learned Query Optimization in Link Traversal-based Query Processing</h3>
+      <p>To answer <strong>RQ IV</strong>, personalized query engines need learned query optimization algorithms that work in an online setting since LTQP engines do not know what data they will query in advance.
+As such, any offline training algorithm that requires millions of training examples is infeasible.
+My previous work in SPARQL join order optimization <span class="references">[<a href="#ref-28">28</a>]</span> shows that while reinforcement learning-based join order optimization is promising, it is computationally expensive to train an optimizer from scratch.
+Instead, learned query optimization hint approaches <span class="references">[<a href="#ref-24">24</a>, <a href="#ref-29">29</a>]</span> train models that give hints to existing optimizers, like what join operator to use.
+These approaches require significantly less training time and are thus more suitable for online learning.
+To answer <strong>RQ IV &amp; V</strong>, relational learned query optimization hints will be adapted for use in LTQP.</p>
+
+    </div>
+</section>
+
+  <section id="EvaluationPlan" inlist="" rel="schema:hasPart" resource="#EvaluationPlan">
+<div datatype="rdf:HTML" property="schema:description">
+      <h2 property="schema:name">Evaluation Plan</h2>
+
+      <p>The evaluation of this work will be done by implementing prototype algorithms on their own, or in combination with other prototypes.</p>
+
+      <ul>
+        <li>The prototypes will be built into a modular open-source LTQP query engine <span class="references">[<a href="#ref-5">5</a>]</span>. By implementing our approach as modules, other researchers can easily replicate and extend these approaches.</li>
+        <li>The primary evaluation method is the benchmark introduced in <a href="#UsagePatternMethod">Subsection 4.1</a>. The benchmark will simulate varying intensities of observed query patterns to determine the impact this has on performance. Further evaluation on different benchmarks will be included if valuable and compatible with LTQP.</li>
+      </ul>
+
+      <p>The evaluation of query optimization performance will follow evaluation approaches of previous work on LTQP.
+In practice, the following metrics are often used as gauges of performance:</p>
+
+      <ul>
+        <li><strong>Query execution time</strong>, indicating overall query execution efficiency.</li>
+        <li><strong>First <em>k</em> result arrival times</strong>, as LTQP is a streaming querying approach, producing first results quickly improves the client experience.</li>
+        <li><strong>Diefficiency</strong> <span class="references">[<a href="#ref-30">30</a>]</span>, measures the efficiency of result arrival times during query execution. Engines that quickly produce many results are considered better.</li>
+        <li><strong>Result completeness</strong>, as any caching or document pruning strategy could introduce mistakes, result completeness will be verified and ensured during evaluation.</li>
+      </ul>
+
+      <p>These metrics will be used to compare the state-of-the-art approaches for non-personalized LTQP optimization to our intended personalized optimization algorithms.</p>
+
+      <p>For further analysis of the caching approaches in <a href="#CachingMethod">Subsection 4.2</a>, cache hit rate and overhead will be investigated.
+The preceding metrics will provide a clear picture of the effectiveness of personalized query optimization for LTQP.</p>
+
+    </div>
+</section>
+
+  <section id="PreliminaryResults" inlist="" rel="schema:hasPart" resource="#PreliminaryResults">
+<div datatype="rdf:HTML" property="schema:description">
+      <h2 property="schema:name">Preliminary Results</h2>
+      <p>Initial work was primarily focused on the exploration of the literature around relational database optimization, SPARQL query optimization, caching theory, learned optimization, and more.
+Following an extensive literature review, the next step was an exploration of the problem space.
+To facilitate an understanding of LTQP, I produced an early-stage visualization tool of how LTQP engines explore the decentralized environments and an in-depth analysis of the document links discovered during query execution <span class="references">[<a href="#ref-31">31</a>]</span>.
+Moreover, I established a software framework to facilitate the subsequent implementation of LTQP optimization algorithms. This was achieved by enabling the engine to associate metadata with each triple processed during query execution.</p>
+
+      <p><br /></p>
+    </div>
+</section>
+
+  <section id="Conclusion" inlist="" rel="schema:hasPart" resource="#Conclusion">
+<div datatype="rdf:HTML" property="schema:description">
+      <h2 property="schema:name">Conclusion</h2>
+
+      <p>In this thesis, the query optimization problem is reformulated as an optimization problem over a sequence of correlated queries. 
+These correlations are hypothesized to occur due to client-specific query usage patterns during the usage of LTQP query engines.
+In this context, personalized query optimization can identify patterns in sequences of queries and use them to adapt the query optimization approach.
+This thesis aims to use caching and learned query optimizers to identify and leverage patterns in query sequences.
+As a result, LTQP engines will become more efficient without relying on pre-computed statistics and optimizations.
+The enhanced efficiency of LTQP engines will subsequently improve the responsiveness and practicality of decentralized applications, thus bringing a decentralized web one step closer.</p>
+
+      <!-- <pre>
+
+</pre> -->
+
+      <p><strong>Acknowledgements.</strong> The research for this work has been supported by SolidLab Vlaanderen (Flemish Government, EWI and RRF project VV023/10).</p>
+
+    </div>
+</section>
+
+
+
+
+
+</main>
+
+<footer><section>
+<h2 id="references">References</h2>
+<dl class="references">
+  <dt id="ref-1">[1]</dt>
+  <dd resource="#Verborgh_2020" typeof="schema:CreativeWork">Verborgh, R.: A Data Ecosystem Fosters Sustainable Innovation (2020).</dd>
+  <dt id="ref-2">[2]</dt>
+  <dd resource="#decentralizednanopubs" typeof="schema:Article">Kuhn, T., Taelman, R., Emonet, V., Antonatos, H., Soiland-Reyes, S., Dumontier, M.: Semantic micro-contributions with decentralized nanopublication services. (2021).</dd>
+  <dt id="ref-3">[3]</dt>
+  <dd resource="#solid" typeof="schema:Article">Mansour, E., Sambra, A.V., Hawke, S., Zereba, M., Capadisli, S., Ghanem, A., Aboulnaga, A., Berners-Lee, T.: A Demonstration of the Solid platform for Social Web Applications. In: WWW (2016).</dd>
+  <dt id="ref-4">[4]</dt>
+  <dd resource="#saleem2018costfed" typeof="schema:Article">Saleem, M., Potocki, A., Soru, T., Hartig, O., Ngomo, A.-C.N.: CostFed: Cost-based query optimization for SPARQL endpoint federation. Procedia Computer Science. 137, 163–174 (2018).</dd>
+  <dt id="ref-5">[5]</dt>
+  <dd resource="#taelman2018comunica" typeof="schema:Article">Taelman, R., Van Herwegen, J., Vander Sande, M., Verborgh, R.: Comunica: a modular SPARQL query engine for the web. In: ISWC. Springer (2018).</dd>
+  <dt id="ref-6">[6]</dt>
+  <dd resource="#dang2023fedshop" typeof="schema:Article">Dang, M.-H., Aimonier-Davat, J., Molli, P., Hartig, O., Skaf-Molli, H., Le Crom, Y.: FedShop: A Benchmark for Testing the Scalability of SPARQL Federation Engines. In: ISWC. Springer (2023).</dd>
+  <dt id="ref-7">[7]</dt>
+  <dd resource="#qudus2021empirical" typeof="schema:Article">Qudus, U., Saleem, M., Ngonga Ngomo, A.-C., Lee, Y.-koo: An empirical evaluation of cost-based federated SPARQL query processing engines. Semantic Web. 12, 843–868 (2021).</dd>
+  <dt id="ref-8">[8]</dt>
+  <dd resource="#hartig2009executing" typeof="schema:Article">Hartig, O., Bizer, C., Freytag, J.-C.: Executing SPARQL queries over the web of linked data. In: ISWC (2009).</dd>
+  <dt id="ref-9">[9]</dt>
+  <dd resource="#taelman2023link" typeof="schema:Article">Taelman, R., Verborgh, R.: Link traversal query processing over decentralized environments with structural assumptions. In: ISWC (2023).</dd>
+  <dt id="ref-10">[10]</dt>
+  <dd resource="#hartig2016walking" typeof="schema:Article">Hartig, O., Özsu, M.T.: Walking without a map: Ranking-based traversal for querying linked data. In: ISWC (2016).</dd>
+  <dt id="ref-11">[11]</dt>
+  <dd resource="#adar2008large" typeof="schema:Article">Adar, E., Teevan, J., Dumais, S.T.: Large scale analysis of web revisitation patterns. In: SIGCHI conference on Human Factors in Computing Systems (2008).</dd>
+  <dt id="ref-12">[12]</dt>
+  <dd resource="#ferrara2012large" typeof="schema:Article">Ferrara, E.: A large-scale community structure analysis in Facebook. EPJ Data Science. 1, 1–30 (2012).</dd>
+  <dt id="ref-13">[13]</dt>
+  <dd resource="#hartig2011zero" typeof="schema:Article">Hartig, O.: Zero-knowledge query planning for an iterator implementation of link traversal based query execution. In: ESWC. Springer (2011).</dd>
+  <dt id="ref-14">[14]</dt>
+  <dd resource="#papailiou2015graph" typeof="schema:Article">Papailiou, N., Tsoumakos, D., Karras, P., Koziris, N.: Graph-aware, workload-adaptive SPARQL query caching. In: SIGMOD (2015).</dd>
+  <dt id="ref-15">[15]</dt>
+  <dd resource="#madkour2018worq" typeof="schema:Article">Madkour, A., Aly, A.M., Aref, W.G.: Worq: Workload-driven rdf query processing. In: ISWC (2018).</dd>
+  <dt id="ref-16">[16]</dt>
+  <dd resource="#zhang2018learning" typeof="schema:Article">Zhang, W.E., Sheng, Q.Z., Yao, L., Taylor, K., Shemshadi, A., Qin, Y.: A learning-based framework for improving querying on web interfaces of curated knowledge bases. (2018).</dd>
+  <dt id="ref-17">[17]</dt>
+  <dd resource="#zhang2016secf" typeof="schema:Article">Zhang, W.E., Sheng, Q.Z., Qin, Y., Yao, L., Shemshadi, A., Taylor, K.: SECF: Improving SPARQL querying performance with proactive fetching and caching. In: Annual ACM Symposium on Applied Computing (2016).</dd>
+  <dt id="ref-18">[18]</dt>
+  <dd resource="#alexander2011describing" typeof="schema:Article">Alexander, K., Cyganiak, R., Hausenblas, M., Zhao, J.: Describing linked datasets with the VoID vocabulary. (2011).</dd>
+  <dt id="ref-19">[19]</dt>
+  <dd resource="#neumann2011characteristic" typeof="schema:Article">Neumann, T., Moerkotte, G.: Characteristic sets: Accurate cardinality estimation for RDF queries with multiple joins. In: ICDE (2011).</dd>
+  <dt id="ref-20">[20]</dt>
+  <dd resource="#heling2020estimating" typeof="schema:Article">Heling, L., Acosta, M.: Estimating characteristic sets for RDF dataset profiles based on sampling. In: ESWC (2020).</dd>
+  <dt id="ref-21">[21]</dt>
+  <dd resource="#aebeloe2019decentralized" typeof="schema:Article">Aebeloe, C., Montoya, G., Hose, K.: Decentralized indexing over a network of RDF peers. In: ISWC (2019).</dd>
+  <dt id="ref-22">[22]</dt>
+  <dd resource="#aebeloe2022lothbrok" typeof="schema:Article">Aebeloe, C., Montoya, G., Hose, K.: The Lothbrok approach for SPARQL Query Optimization over Decentralized Knowledge Graphs. (2022).</dd>
+  <dt id="ref-23">[23]</dt>
+  <dd resource="#yu2020reinforcement" typeof="schema:Article">Yu, X., Li, G., Chai, C., Tang, N.: Reinforcement learning with tree-lstm for join order selection. In: ICDE (2020).</dd>
+  <dt id="ref-24">[24]</dt>
+  <dd resource="#marcus2021bao" typeof="schema:Article">Marcus, R., Negi, P., Mao, H., Tatbul, N., Alizadeh, M., Kraska, T.: Bao: Making learned query optimization practical. In: SIGMOD (2021).</dd>
+  <dt id="ref-25">[25]</dt>
+  <dd resource="#marcus2018deep" typeof="schema:Article">Marcus, R., Papaemmanouil, O.: Deep reinforcement learning for join order enumeration. Presented at the (2018).</dd>
+  <dt id="ref-26">[26]</dt>
+  <dd resource="#schwabe2023cardinality" typeof="schema:Article">Schwabe, T., Acosta, M.: Cardinality Estimation over Knowledge Graphs with Embeddings and Graph Neural Networks. (2023).</dd>
+  <dt id="ref-27">[27]</dt>
+  <dd resource="#hartig2012foundations" typeof="schema:Article">Hartig, O., Freytag, J.-C.: Foundations of traversal based query execution over linked data. In: ACM Hypertext Conferenceand social media. pp. 43–52 (2012).</dd>
+  <dt id="ref-28">[28]</dt>
+  <dd resource="#eschauzier2023reinforcement" typeof="schema:Article">Eschauzier, R., Taelman, R., Morren, M., Verborgh, R.: Reinforcement Learning-Based SPARQL Join Ordering Optimizer. In: ESWC (2023).</dd>
+  <dt id="ref-29">[29]</dt>
+  <dd resource="#woltmann2023fastgres" typeof="schema:Article">Woltmann, L., Thiessat, J., Hartmann, C., Habich, D., Lehner, W.: FASTgres: Making Learned Query Optimizer Hinting Effective. (2023).</dd>
+  <dt id="ref-30">[30]</dt>
+  <dd resource="#acosta2017diefficiency" typeof="schema:Article">Acosta, M., Vidal, M.-E., Sure-Vetter, Y.: Diefficiency metrics: measuring the continuous efficiency of query processing approaches. In: ISWC (2017).</dd>
+  <dt id="ref-31">[31]</dt>
+  <dd resource="#eschauzier2023does" typeof="schema:Article">Eschauzier, R., Taelman, R., Verborgh, R.: How Does the Link Queue Evolve during Traversal-Based Query Processing? (2023).</dd>
+</dl>
+</section>
+</footer>
+
+
+
+</body>
+</html>
